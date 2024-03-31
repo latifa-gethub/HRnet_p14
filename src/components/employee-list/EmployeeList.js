@@ -6,10 +6,10 @@ import {Link} from 'react-router-dom'
 const EmployeeList = () => {
   const infoEmployee=useSelector(state=>state.employeeSlice.infoEmployee)
   console.log("infiEmployee au page tableau",infoEmployee)
-  console.log("le premier element de tab info",infoEmployee[0]["first-name"])
+  //console.log("le premier element de tab info",infoEmployee[0]["first-name"])
   let data =[
     {
-        firstname: infoEmployee[0]["first-name"] ,
+        firstname: infoEmployee[0]["first-name"],
         lastname:  infoEmployee[0]["last-name"],
         startDate:  infoEmployee[0]["start-date"],
         departement:infoEmployee[0].departement,
