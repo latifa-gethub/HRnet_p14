@@ -7,19 +7,8 @@ const EmployeeList = () => {
   const infoEmployee=useSelector(state=>state.employeeSlice.infoEmployee)
   console.log("infiEmployee au page tableau",infoEmployee)
   //console.log("le premier element de tab info",infoEmployee[0]["first-name"])
-  let data =[
-    {
-        firstname: infoEmployee[0]["first-name"],
-        lastname:  infoEmployee[0]["last-name"],
-        startDate:  infoEmployee[0]["start-date"],
-        departement:infoEmployee[0].departement,
-        dateOFBirth:infoEmployee[0]["date-of-birth"],
-        street:"zone",
-        city: infoEmployee[0].city,
-        state: infoEmployee[0].street,
-        zipCode: infoEmployee[0]["zip-code"]           
-    }
-]
+  let data=infoEmployee
+   
   
   console.log("data infiEmployee",data)
   if(data.length===0){
@@ -34,6 +23,20 @@ const EmployeeList = () => {
           city: "AMBILLY",
           state: "France",
           zipCode: "74100"           
+      }
+  ]
+  }else{
+    data=[
+      {
+          firstname: infoEmployee[0]["first-name"],
+          lastname:  infoEmployee[0]["last-name"],
+          startDate:  infoEmployee[0]["start-date"],
+          departement:infoEmployee[0].departement,
+          dateOFBirth:infoEmployee[0]["date-of-birth"],
+          street:"zone",
+          city: infoEmployee[0].city,
+          state: infoEmployee[0].street,
+          zipCode: infoEmployee[0]["zip-code"]           
       }
   ]
   }
