@@ -3,15 +3,24 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 2rem 0 2rem;
+    padding: 0 1rem 0 0.5rem;
     border-bottom: 2px solid #ccc; 
+}
+.logo-Rh{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo{
+    width: 4rem;
+    height: 4rem;
 }
 .nameApplication{
     color: #6e8611;
-    font-family: 'Acme';
+   /*  font-family: 'Acme'; */
 }
 .link_viewEmployee{
-    background-color: #6e8611;
+    background-color: #607510;
     height: 30px;
     width: 21%;
     color: white;
@@ -20,50 +29,62 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    @media screen and (max-width: 767.8px){
+        font-size: 10px;
+    }
 }
 .createEmployee{
-    background-color: #f0f2e8;
+    background-color: #f3f4ee;
 }
-#create-employee{
+#form-create-employee{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    height: 96vh;
+    justify-content: space-around;    
     width: 40%;
     padding: 2rem;
+    margin: 2rem 0 2rem 0;
     background-color: #6e861169;
 }
-h2{
+h1{
     font-family: Cinderblock,Impact,"Arial Black",sans-serif;
     line-height: .95;
     font-weight: 400;
 }
-h2 span{
+h1 span{
     color:#6e8611 ;
 }
 .address{
     display: flex;
     flex-direction: column;  
 }
-.main{
+.main-wrapper{
+   
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    
 }
-form div{
+.input-wrapper{
     display: flex;
     flex-direction: column;
+    text-align: left;
+    margin-bottom: 1rem;
 }
-input{
-    height: 30px;
+.input-wrapper label,.department {
+    font-weight: bold;
+  }
+  .input-wrapper input {
+    padding: 5px;
+    font-size: 1rem;
     border-radius: 5px;
     border: none;
-}
-.save-employee{
+  }
+ 
+.btn-save-employee{
     background-color: #6e8611;
-    height: 30px;
-    width: 21%;
+    font-size: 17px;
+    height: 35px;
+    width: 35%;
     color: white;
     border-radius: 5px;
     display: flex;
@@ -71,17 +92,57 @@ input{
     justify-content: center;
     text-decoration: none;
     margin: 28px;
+    padding: 5px;
     border: none;
 }
 footer{
     display: flex;
     justify-content: center;
     border-top: 2px solid #ccc;
-    padding: 2rem 0 1.5rem;
+    padding: 2rem 0 1.5rem;    
 }
 .contenair-table{
- width: 90%;
+ width: 95%;
+ height: auto;
  display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    padding-bottom: 2rem;
+    padding-left: 1.5rem;
 }
+/* #dateStart{
+    color: red;
+    width: 12.5rem !important;
+} */
+.modal-open {
+    overflow: hidden;
+  }
+  .dropdown-toggle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    /* font-size: 1.2rem; */
+    border-radius: 5px;
+    background-color: #fff;
+    border: none;
+  }
+  .dropdown{
+    position: relative;
+    width: 12rem;
+  }
+  .dropdown-menu{
+    position: relative;
+    width: 10.64rem;
+    padding: 1rem;
+    top: -5px;
+    background-color: #fff;
+    overflow-y: auto;
+    max-height: 185px;
+    border-radius: 0 0 5px 5px;
+  }
+  .dropDownMenu-wrapper{
+    margin-top: 1rem;
+  }
