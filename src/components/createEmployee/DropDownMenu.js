@@ -8,10 +8,11 @@ const DropdownMenu = ({ options, onSelect }) => {
   const [isOpen,setIsOpen]=useState(false)
  
   const toggleDropDown = () => setIsOpen(!isOpen)
-  console.log("les option reçu au drpdm",options)  
+ 
   
   const handleSelect = (option) => {
-    console.log(option)
+
+    console.log("option handelselect",option)
     setSelectedOption(option.name);
     if(option.abbreviation){
       onSelect(option.abbreviation)

@@ -6,20 +6,23 @@ import { useState } from 'react';
 import { Modal } from 'simple-react-modal-lw';
 import { DatePickerReact } from 'datepicker-react-sw49go';
 import DropdownMenu from './DropDownMenu';
-import states from '../dataStates';
-import { object } from 'prop-types';
-
+import states from '../datas/dataStates';
+import { departments } from '../datas/departments';
+ 
 const CreateEployee = () => {
   const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
   const [startDate, setStartDate] = useState();
   const [dateOfBirth, setDateOfBirth] = useState(new Date());
+  //state for Modal 
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [selectedOptionState, setSelectedOptionState] = useState(null);
-  const [error, setError] = useState(false);
-  /* const tabOptionsStates = states.map(object => object); */
-
+  //state for State option
+  const [selectedOption, setSelectedOption] = useState('Sales');
+  //state for departement
+  const [selectedOptionState, setSelectedOptionState] = useState('AL');
+  
+  
+console.log(selectedOptionState)
   const handleSelect = option => {
     setSelectedOption(option);
   };
@@ -33,14 +36,12 @@ const CreateEployee = () => {
   function handleDataOfbirth(data) {
     setDateOfBirth(data);
   }
+  /**
+     * Function to save employee in store
+     * @param {object} data 
+     */
   function handleDataFurm(data) {
-    if (!selectedOptionState) {
-      setIsOpen(false);
-      setError(true);
-    } else {
-      setError(false);
-      setIsOpen(true);
-    }
+    
     console.log('data formulaire au submit', data);
     const objetInfoEmployee = {
       firstname: data['first-name'],
@@ -56,23 +57,12 @@ const CreateEployee = () => {
 
     console.log('objet employer formater', objetInfoEmployee);
 
-    //stocker infoEmployee dans le store
+    //save Employee in store
     dispatch(saveEmployee(objetInfoEmployee));
     reset();
     setIsOpen(true);
   }
-
-  const optionsDepartment = [
-    {name:'-'},
-    {
-      name: 'Sales'
-    },
-    { name: 'Marketing' },
-    { name: 'Engineering' },
-    { name: 'Human Resources' },
-    { name: 'Legal' }
-  ];
-
+   
   return (
     <div className="createEmployee">
       <main className="main-wrapper">
@@ -124,7 +114,7 @@ const CreateEployee = () => {
               iconInputColor={'#607510'}
               positionDPR={'top'}
               bckColor={'#607510'}
-              dateColor={'6e8611'}
+              dateColor={'#6e8611'}
             />
           </div>
 
@@ -152,11 +142,7 @@ const CreateEployee = () => {
             </div>
             <div className="input-wrapper">
               <label className="state">State</label>
-              <DropdownMenu options={states} onSelect={handleSelectState} />
-              {/* {error &&
-                <p className="error-message">
-                  Veuillez sélectionner une option
-                </p>} */}
+              <DropdownMenu options={states} onSelect={handleSelectState} />               
             </div>
             <div className="input-wrapper">
               <label htmlFor="zip-code">Zip Code</label>
@@ -171,7 +157,7 @@ const CreateEployee = () => {
           </fieldset>
           <div className="dropDownMenu-wrapper">
             <label className="department">Department</label>
-            <DropdownMenu options={optionsDepartment} onSelect={handleSelect} />
+            <DropdownMenu options={departments} onSelect={handleSelect} />
           </div>
 
           <button type="submit" className="btn-save-employee">

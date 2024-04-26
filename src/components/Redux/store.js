@@ -4,8 +4,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   infoEmployee: []
 };
-
-//creer une partie d'etat de store
+ 
+//creer une partie d'etat de store pour employee
 export const employeeSlice = createSlice({
   name: 'employeeSlice',
   //l'etat ou données que le store peut gérer pour moi

@@ -101,6 +101,17 @@ footer{
     border-top: 2px solid #ccc;
     padding: 2rem 0 1.5rem;    
 }
+/******page error******/
+.error{
+    width: 90%;
+    height: 63vh;
+   color: #6e8611;
+    text-align: center;
+    font-size: 25px;
+   }
+   .link{
+    font-size: 20px;
+   }
 .contenair-table{
  width: 95%;
  height: auto;
@@ -111,10 +122,7 @@ footer{
     padding-bottom: 2rem;
     padding-left: 1.5rem;
 }
-/* #dateStart{
-    color: red;
-    width: 12.5rem !important;
-} */
+ 
 .modal-open {
     overflow: hidden;
   }

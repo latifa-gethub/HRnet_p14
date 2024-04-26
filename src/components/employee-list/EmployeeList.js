@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { TableReact } from 'table-react-sw49go';
 import { Modal } from 'simple-react-modal-lw';
 import { Link } from 'react-router-dom';
-import initialData from '../../initialDataTable';
+import initialData from '../datas/initialDataTable';
 
 const EmployeeList = () => {
   const infoEmployee = useSelector(state => state.employeeSlice.infoEmployee);
@@ -11,11 +11,13 @@ const EmployeeList = () => {
   const [isOpenModal, setIsOpenModal] = useState(false);
   
   const [data, setData] = useState(infoEmployee);
-  console.log('data reçu', data);
+ 
   if (data.length === 0) {
     setData(initialData);
   }
+  //Table for number of entries of table
   const entries = ['4','2','6','10','50','100']
+  //Definition of table header elements
   const columns = [
     { name: 'first Name', sort: 'AZ' },
     { name: 'Last name', sort: 'AZ' },
@@ -35,19 +37,12 @@ const EmployeeList = () => {
   // Function to retrieve search generated object - REQUIRED
   const handleResultSearch = result => {
     console.log('result:', result.length);
-
     if (result.length === 0) {
       setIsOpenModal(true);
     }
   };
 
-  // Function to retrieve the row selected 'to be remove or other' and his index (REQUIRED if 'allowRemoveRow' be 'true')
-  const handleRemoveRow = (objRemove, index) => {
-    console.log('index:', index);
-    console.log('objRemove:', objRemove);    
-   const newData = data.filter((element, i) => i !== index)    
-    setData(newData)
-  };
+  
   return (
     <div className="contenair-table">
       <h1>
@@ -58,9 +53,7 @@ const EmployeeList = () => {
         dataAllRows={data}
         handleNbEntries={handleNbEntries}
         dataEntries ={entries}
-        handleResultSearch={handleResultSearch}
-        /* handleRemoveRow={handleRemoveRow}
-        allowRemoveRow={true} */
+        handleResultSearch={handleResultSearch}         
         customThead={{ backgroundColor: '#6e8611', color: '#000' }}
         backGroundRows={'#f0f2e8'}
         customContainer={{
