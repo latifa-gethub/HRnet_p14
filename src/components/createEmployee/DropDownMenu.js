@@ -11,8 +11,7 @@ const DropdownMenu = ({ options, onSelect }) => {
  
   
   const handleSelect = (option) => {
-
-    console.log("option handelselect",option)
+    
     setSelectedOption(option.name);
     if(option.abbreviation){
       onSelect(option.abbreviation)

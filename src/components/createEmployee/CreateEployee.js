@@ -19,10 +19,9 @@ const CreateEployee = () => {
   //state for State option
   const [selectedOption, setSelectedOption] = useState('Sales');
   //state for departement
-  const [selectedOptionState, setSelectedOptionState] = useState('AL');
+  const [selectedOptionState, setSelectedOptionState] = useState('AL');  
   
-  
-console.log(selectedOptionState)
+ 
   const handleSelect = option => {
     setSelectedOption(option);
   };
@@ -40,9 +39,8 @@ console.log(selectedOptionState)
      * Function to save employee in store
      * @param {object} data 
      */
-  function handleDataFurm(data) {
-    
-    console.log('data formulaire au submit', data);
+  function handleDataFurm(data) {    
+   
     const objetInfoEmployee = {
       firstname: data['first-name'],
       lastname: data['last-name'],
@@ -54,8 +52,7 @@ console.log(selectedOptionState)
       state: selectedOptionState,
       zipCode: data['zip-code']
     };
-
-    console.log('objet employer formater', objetInfoEmployee);
+ 
 
     //save Employee in store
     dispatch(saveEmployee(objetInfoEmployee));
